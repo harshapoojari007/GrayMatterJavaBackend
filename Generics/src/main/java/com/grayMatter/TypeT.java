@@ -1,5 +1,16 @@
 package com.grayMatter;
 
+//
+//class AnyType<?>
+//{
+//	? message;
+//    public void setMessage(? m) {
+//    	this.message=m;
+//    }
+//    public void sendMessage() {
+//    	System.out.println("Hii "+message+"!! From class TypeT!!");
+//    }
+//}
 public class TypeT<T>{
     T message;
     public void setMessage(T m) {
@@ -8,6 +19,7 @@ public class TypeT<T>{
     public void sendMessage() {
     	System.out.println("Hii "+message+"!! From class TypeT!!");
     }
+    
 	public static void main(String[] args) {
 		TypeT<String> t=new TypeT<String>();
 		t.setMessage("Harsha");

@@ -51,6 +51,15 @@ public static void main(String[] args) throws ClassNotFoundException, SQLExcepti
 				 System.out.println(rs1.getInt(1)+" "+rs1.getString(2));
 
 			}
+			
+			
+			Statement st1=con.createStatement();
+			String query4="select first_name, employee_id from employees";
+			ResultSet rs3= st1.executeQuery(query4);
+			while(rs.next())
+			{
+				System.out.println(rs3.getString(1)+" "+rs3.getInt(2));
+			}
 	
 	ps.close();
 	st.close();
