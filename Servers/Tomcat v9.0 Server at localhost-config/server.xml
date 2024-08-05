@@ -160,7 +160,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="ServeletProejct" path="/ServeletProejct" reloadable="true" source="org.eclipse.jst.j2ee.server:ServeletProejct"/><Context docBase="EmployeeManagement" path="/EmployeeManagement" reloadable="true" source="org.eclipse.jst.j2ee.server:EmployeeManagement"/><Context docBase="UserManagement" path="/UserManagement" reloadable="true" source="org.eclipse.jst.j2ee.server:UserManagement"/></Host>
+      <Context docBase="ServeletProejct" path="/ServeletProejct" reloadable="true" source="org.eclipse.jst.j2ee.server:ServeletProejct"/><Context docBase="EmployeeManagement" path="/EmployeeManagement" reloadable="true" source="org.eclipse.jst.j2ee.server:EmployeeManagement"/><Context docBase="UserManagement" path="/UserManagement" reloadable="true" source="org.eclipse.jst.j2ee.server:UserManagement"/><Context docBase="BankingApplication" path="/BankingApplication" reloadable="true" source="org.eclipse.jst.j2ee.server:BankingApplication"/><Context docBase="HarshaPoojari_1723_week03" path="/HarshaPoojari_1723_week03" reloadable="true" source="org.eclipse.jst.j2ee.server:HarshaPoojari_1723_week03"/></Host>
     </Engine>
   </Service>
 </Server>
