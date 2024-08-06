@@ -29,8 +29,8 @@
             <div class="ul">
                 <ul type="none">
                    <a href="index.jsp"> <li>HOME</li></a>
-                    <a href="pages/Accounts.jsp"><li>ACCOUNTS</li></a>
-                    <li>CARDS</li>
+                    <a href="Accounts.jsp"><li>ACCOUNTS</li></a>
+                    <a href="Cards.jsp"><li>CARD</li></a>
                     <li>DEPOSITS</li>
 
                 </ul>
@@ -38,20 +38,22 @@
 
         </nav>
  
-     <% 
-        String username = request.getParameter("username");
-    %>
+<%
+        HttpSession session1 = request.getSession(false); // false means do not create a new session if one doesn't exist
+        String username1 = (session1 != null) ? (String) session1.getAttribute("username") : null;
 
-    <% if (username != null) { %>
-        <div  class="loginbtn">
-            Welcome, <%= username %>!
+        if (username1 == null) {%>
             
-        </div>
-    <% } else { %>
         <div class="loginbtn">
-            <a href="/pages/login.jsp">LOGIN</a>
+            <a href="login.jsp">LOGIN</a>
         </div>
-    <% } %>
+       <%   }else {%>
+    
+    <h2 class="loginbtn"><%= username1 %>!</h2>
+    <div class="loginbtn">
+    <a href="logout.jsp">Logout</a>
+    </div>
+     <%   }%>
     </header>
     <div> 
         <div class="maindiv1">

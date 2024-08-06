@@ -33,11 +33,9 @@
                 <ul type="none">
                     <a href="index.jsp"><li>HOME</li></a>
                     <a href="about.jsp"><li>ABOUT US</li></a>
-                     <% if (username == "admin") { %>
+                    <% if (username.equals("admin")) { %>
                      <a href="items.jsp"><li>ITEMS</li></a>
-                     <% } %>
-                     
-                    <% if (username != null) { %>
+                    <% } else{ %>
                     <a href="myorders.jsp"><li>MY ORDERS</li></a>
                      <% } %>
                 </ul>

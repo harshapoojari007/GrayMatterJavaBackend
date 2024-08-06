@@ -40,6 +40,18 @@
   	<description></description>
   	<servlet-class>com.grayMatter.AccountOperations</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<display-name>LogoutServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.grayMatter.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CardServlet</servlet-name>
+  	<display-name>CardServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.grayMatter.CardServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
@@ -63,5 +75,13 @@
   <servlet-mapping>
   	<servlet-name>AccountOperations</servlet-name>
   	<url-pattern>/AccountOperations</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CardServlet</servlet-name>
+  	<url-pattern>/CardServlet</url-pattern>
   </servlet-mapping>
 </web-app>

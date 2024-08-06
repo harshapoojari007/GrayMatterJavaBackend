@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+<context:property-placeholder location="classpath:jdbc.properties"/>
+<bean name="dbcon" class="com.grayMatter.Beans.DataSourceClass" >
+<property name="driverName" value="${DataSourceClass.driverName}"></property>
+<property name="url" value="${DataSourceClass.url}"></property>
+<property name="username" value="${DataSourceClass.username}"></property>
+<property name="password" value="${DataSourceClass.password}"></property>
+</bean>
+
+</beans>

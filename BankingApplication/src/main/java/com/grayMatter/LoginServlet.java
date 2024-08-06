@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -65,7 +66,8 @@ public class LoginServlet extends HttpServlet {
 				System.out.println(rs.getString(1)+" "+rs.getString(3));
 				if(rs.getString(1).equals(username) && rs.getString(3).equals(password))
 				{
-					request.setAttribute("usernname", username);
+					HttpSession session = request.getSession();
+		            session.setAttribute("username", username);
 					String alertMessage="Successfully Loggen In";
 			        request.setAttribute("alertMessage", alertMessage);
 					dispatcher=request.getRequestDispatcher("index.jsp");

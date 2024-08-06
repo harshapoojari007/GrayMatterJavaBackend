@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here 
+    WHile doing autowiring through constructors and been class not having parameterized constructor then spring container 
+    will perfom constructor injection through default constructor an=and then uses setter to inject values
+    -->
+
+     <bean name="stu2" class="com.grayMatter.Bean.Student" autowire="constructor">
+    <constructor-arg name="id" value="123"></constructor-arg>
+     <constructor-arg name="name" value="Harsha"></constructor-arg>
+      <constructor-arg name="blood" value="A+"></constructor-arg>
+      <constructor-arg name="courses" >
+      <Set>
+         <ref bean="course"/>
+      
+      </Set>
+     </constructor-arg> 
+    </bean>
+
+           <bean name="course" class="com.grayMatter.Bean.Course">
+        <constructor-arg name="id" value="123"></constructor-arg>
+        <constructor-arg name="name" value="B.Tech"></constructor-arg>
+        </bean>
+       
+   
+</beans>
