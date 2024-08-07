@@ -15,6 +15,7 @@ public class App
     {
        ApplicationContext ac=new  ClassPathXmlApplicationContext("Student-Bean.xml");
       
+       
        Student st=(Student) ac.getBean("stu2");
        System.out.println(st);
 //       Student st1=(Student)ac.getBean("stu1");

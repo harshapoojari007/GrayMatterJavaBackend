@@ -57,7 +57,6 @@ public class AccountOperations extends HttpServlet {
     		String adhaar=request.getParameter("adhaar");
     		String address=request.getParameter("address");
     		String account_type=request.getParameter("account_type");
-    		String card_pin=request.getParameter("card_pin");
     		String accountNumber = "422201112" + String.format("%04d", (int)(Math.random() * 10000));
 
     		String IFSC="GHP0000422";
@@ -73,7 +72,7 @@ public class AccountOperations extends HttpServlet {
     		}
     		
     		
-    		String query="insert into account values(?,?,?,?,?,?,?,?,?,?,?,?)";
+    		String query="insert into account values(?,?,?,?,?,?,?,?,?,?,?)";
     		try {
     			ps=con.prepareStatement(query);
     			ps.setString(1, username);
@@ -87,7 +86,6 @@ public class AccountOperations extends HttpServlet {
     			ps.setString(9, mobile);
     			ps.setString(10, adhaar);
     			ps.setString(11, address);
-    			ps.setInt(12, Integer.parseInt(card_pin));
     		
     			ps.executeUpdate();
     			out.println("Connection Established");
@@ -123,46 +121,24 @@ public class AccountOperations extends HttpServlet {
 				e.printStackTrace();
 			}
         	
-        }else if(action=="addMoney")
-        {
-        	
-        	String accountNumber=request.getParameter("accountNumber");
-        	String amount=request.getParameter(amount);
-        	String query="Update account SET balance=? where accountNumber=?";
-        	try {
-				ps=con.prepareStatement(query);
-				ps.setString(1, amount);
-				ps.setString(2, accountNumber);
-				ps.executeUpdate();
-				
-				RequestDispatcher dispatcher;
-	    	    {
-	    				String alertMessage="Successfully Added Amount";
-	    		        request.setAttribute("alertMessage", alertMessage);
-	    				dispatcher=request.getRequestDispatcher("Accounts.jsp");
-	    			    dispatcher.forward(request, response);
-	    		}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
         }
-        
         else if(action=="updateAccount") {
         	
-        	String accountNumber=request.getParameter("accountNumber");
-        	String query="delete from account where username=? and accountNumber=?";
+        	String name=request.getParameter("name");
+        	String address=request.getParameter("address");
+        	String query="update account set address=?,name=? where username=?";
         	try {
 				ps=con.prepareStatement(query);
-				ps.setString(1, username);
-				ps.setString(2, accountNumber);
+				ps.setString(3, username);
+				ps.setString(1, address);
+				ps.setString(2, name);
 				ps.executeUpdate();
 				
 				RequestDispatcher dispatcher;
 	    	    {
-	    				String alertMessage="Successfully Deleted an Account";
+	    				String alertMessage="Successfully Updated an Account";
 	    		        request.setAttribute("alertMessage", alertMessage);
-	    				dispatcher=request.getRequestDispatcher("/pages/Accounts.jsp");
+	    				dispatcher=request.getRequestDispatcher("Accounts.jsp");
 	    			    dispatcher.forward(request, response);
 	    		}
 			} catch (SQLException e) {
@@ -194,18 +170,19 @@ public class AccountOperations extends HttpServlet {
         }else if(action=="withdraw") {
         	
         	//String
-        	String query="update account SET balance=? where username=?";
+        	String amount=request.getParameter("amount");
+        	String query="update account SET balance=balance-? where username=?";
         	try {
 				ps=con.prepareStatement(query);
 				ps.setString(2, username);
-				ps.setString(1, username);
+				ps.setString(1, amount);
 				ps.executeUpdate();
 				
 				RequestDispatcher dispatcher;
 	    	    {
-	    				String alertMessage="Successfully Deleted an Account";
+	    				String alertMessage="Successfully Withdrawn "+amount;
 	    		        request.setAttribute("alertMessage", alertMessage);
-	    				dispatcher=request.getRequestDispatcher("/pages/Accounts.jsp");
+	    				dispatcher=request.getRequestDispatcher("Accounts.jsp");
 	    			    dispatcher.forward(request, response);
 	    		}
 			} catch (SQLException e) {
@@ -214,20 +191,20 @@ public class AccountOperations extends HttpServlet {
 			}
         }else if(action=="addMoney")
         {
-        	String username=request.getParameter("username");
-        	String accountNumber=request.getParameter("accountNumber");
-        	String query="delete from account where username=? and accountNumber=?";
+        	
+        	String amount=request.getParameter("amount");
+        	String query="update  account SET balance=balance+? where username=?";
         	try {
 				ps=con.prepareStatement(query);
-				ps.setString(1, username);
-				ps.setString(2, accountNumber);
+				ps.setString(2, username);
+				ps.setString(1, amount);
 				ps.executeUpdate();
 				
 				RequestDispatcher dispatcher;
 	    	    {
-	    				String alertMessage="Successfully Deleted an Account";
+	    				String alertMessage="Successfully Added an amount "+amount;
 	    		        request.setAttribute("alertMessage", alertMessage);
-	    				dispatcher=request.getRequestDispatcher("/pages/Accounts.jsp");
+	    				dispatcher=request.getRequestDispatcher("Accounts.jsp");
 	    			    dispatcher.forward(request, response);
 	    		}
 			} catch (SQLException e) {
