@@ -160,7 +160,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Day18ClasWork" path="/Day18ClasWork" reloadable="true" source="org.eclipse.jst.j2ee.server:Day18ClasWork"/><Context docBase="BankingApplication" path="/BankingApplication" reloadable="true" source="org.eclipse.jst.j2ee.server:BankingApplication"/><Context docBase="Day18Assignment" path="/Day18Assignment" reloadable="true" source="org.eclipse.jst.j2ee.server:Day18Assignment"/></Host>
+      <Context docBase="Day18ClasWork" path="/Day18ClasWork" reloadable="true" source="org.eclipse.jst.j2ee.server:Day18ClasWork"/><Context docBase="BankingApplication" path="/BankingApplication" reloadable="true" source="org.eclipse.jst.j2ee.server:BankingApplication"/><Context docBase="Day18Assignment" path="/Day18Assignment" reloadable="true" source="org.eclipse.jst.j2ee.server:Day18Assignment"/><Context docBase="Day19ClassWorkMVC" path="/Day19ClassWorkMVC" reloadable="true" source="org.eclipse.jst.j2ee.server:Day19ClassWorkMVC"/><Context docBase="Day19Assignment" path="/Day19Assignment" reloadable="true" source="org.eclipse.jst.j2ee.server:Day19Assignment"/><Context docBase="HarshaPoojari_1723_week04" path="/HarshaPoojari_1723_week04" reloadable="true" source="org.eclipse.jst.j2ee.server:HarshaPoojari_1723_week04"/></Host>
     </Engine>
   </Service>
 </Server>

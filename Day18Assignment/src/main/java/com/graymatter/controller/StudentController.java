@@ -23,6 +23,7 @@ public ModelAndView login(@RequestParam String username, @RequestParam String pa
 	{
 		mv=new ModelAndView("StudentDashboard");
 		mv.addObject("username",username);
+		mv.addObject("alertMessage","Successfully LoggedIn");
 		return mv;
 	}
 	mv=new ModelAndView("login");
@@ -62,7 +63,9 @@ public ModelAndView dologin() {
 	@RequestMapping("/add")
 	public ModelAndView add(@RequestParam String name,@RequestParam String id,@RequestParam String age,@RequestParam String mobile) {
 	sts.add(new Student(name,Integer.parseInt(id),Integer.parseInt(age),mobile));
-	return new ModelAndView("StudentDashboard");
+	ModelAndView mv=new ModelAndView("StudentDashboard");
+    mv.addObject("alertMessage","Successfully Added Student");
+	return mv; 
 	}
 	
 	
@@ -77,7 +80,9 @@ public ModelAndView dologin() {
 	                break;
 	            }
 	        }
-	return new ModelAndView("StudentDashboard");
+	        ModelAndView mv=new ModelAndView("StudentDashboard");
+	        mv.addObject("alertMessage","Successfully Deleted Student");
+	    	return mv; 
 	}
 	
 	@RequestMapping("/getAll")
@@ -123,7 +128,8 @@ public ModelAndView dologin() {
 				
 		}
 		ModelAndView mv=new ModelAndView("StudentDashboard");
-		return mv;
+        mv.addObject("alertMessage","Successfully Updated Student");
+    	return mv; 
 	}
 	
 }

@@ -6,8 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Add Student</title>
+<script type="text/javascript">
+       
+        function showAlert(message) {
+            if (message) {
+                alert(message);
+            }
+        }
+        showAlert(${alertMessage});
+    </script>
+    
 </head>
+
 <body>
+
+        
+       
+  
 <h1>Student Dashboard</h1>
 
 
