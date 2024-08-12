@@ -16,8 +16,8 @@ public class CustomerService {
 	
 	
 	//ADD SERVICE
-	public int addCustomer(Customer c) {
-		return	customer.addCustomer(c);
+	public int addCustomer(Customer c,String username) {
+		return	customer.addCustomer(c,username);
 		
 		}
 	

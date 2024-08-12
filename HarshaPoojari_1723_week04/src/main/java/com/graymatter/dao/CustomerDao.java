@@ -19,9 +19,9 @@ public class CustomerDao {
 	//OPERATIONS
 	
 	    //Add
-		public int addCustomer(Customer c)
+		public int addCustomer(Customer c,String username)
 		{
-			String query="insert into customer values("+c.getId()+",'"+c.getName()+"','"+c.getEmail()+"');";
+			String query="insert into customer values("+c.getId()+",'"+c.getName()+"','"+c.getEmail()+"','"+username+"');";
 			int i=jdbcTemplate.update(query);
 			return i;
 		}
