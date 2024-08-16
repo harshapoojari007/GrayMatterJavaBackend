@@ -3,6 +3,8 @@ package com.graymatter.entities;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -28,5 +30,6 @@ public class Order {
 	           inverseJoinColumns = @JoinColumn(name="itemId")
 		        
 	)
+	@JsonIgnore
 	private List<Item> items;
 }
