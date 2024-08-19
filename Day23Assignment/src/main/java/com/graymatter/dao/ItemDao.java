@@ -28,4 +28,11 @@ public class ItemDao {
 		// TODO Auto-generated method stub
 		return repo.findById(id).get();
 	}
+
+
+	public void deleteItem(int id) {
+		// TODO Auto-generated method stub
+		repo.deleteById(id);
+		
+	}
 }

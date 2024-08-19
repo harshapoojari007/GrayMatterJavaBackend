@@ -36,4 +36,10 @@ public class ItemServices implements ItemServiceInterface{
 		return mapper.mapToItemDto(dao.getItem(id));
 	}
 
+	public void deleteItem(int id) {
+		// TODO Auto-generated method stub
+		dao.deleteItem(id);
+		
+	}
+
 }

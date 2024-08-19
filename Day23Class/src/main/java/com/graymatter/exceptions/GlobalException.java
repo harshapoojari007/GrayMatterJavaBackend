@@ -12,7 +12,7 @@ public class GlobalException{
 
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<String> handleResourceNotFound(ResourceNotFoundException rnfe){
-		return new ResponseEntity<>("No id present",HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>("No resource present",HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(NoSuchElementException.class)

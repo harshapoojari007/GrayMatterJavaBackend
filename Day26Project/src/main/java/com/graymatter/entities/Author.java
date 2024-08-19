@@ -3,33 +3,46 @@ package com.graymatter.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ToString
 
-@Table(name="classDepartment")
-public class Department {
-
+public class Author {
 	private String name;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@OneToMany(mappedBy = "department",cascade=CascadeType.ALL,orphanRemoval = true)
-//	@JsonIgnore
-	private List<Employee> employee=new ArrayList<>();
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
+	private List<Book> books=new ArrayList<>(); 
+	
+	public Author(String name) {
+		this.name=name;
+	}
+	
+	public Book addBook(Book book) {
+		books.add(book);
+		book.setAuthor(this);
+		return book;
+	}
+	
+	public void removeBook(Book book) {
+		books.remove(book);
+		book.setAuthor(null);
+	}
+	
+
 }

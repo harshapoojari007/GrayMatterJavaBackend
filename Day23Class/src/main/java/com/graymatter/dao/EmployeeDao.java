@@ -35,7 +35,7 @@ public class EmployeeDao {
 
 	public Employee getEmployeeById(int id) throws ResourceNotFoundException{
 		// TODO Auto-generated method stub
-		return repository.findById(id).get(); //.orElseThrow(()->new ResourceNotFoundException("No such id Present"));
+		return repository.findById(id).orElseThrow(()->new ResourceNotFoundException("No such id Present"));
 	}
 
 	

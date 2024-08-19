@@ -6,4 +6,7 @@ import com.graymatter.entities.Order;
 
 public interface OrderRepository extends JpaRepository<Order, Integer>{
 
+	
+	void deleteItemId(int id);
+
 }

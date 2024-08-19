@@ -23,4 +23,10 @@ public class DepartmentDao {
 	public Department addDepartment(Department e) {
 		return repository.save(e);
 	}
+
+	public void deleteDepartment(int id) {
+		// TODO Auto-generated method stub
+		repository.deleteById(id);
+		
+	}
 }

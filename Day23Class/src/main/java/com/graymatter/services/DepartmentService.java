@@ -28,4 +28,10 @@ public class DepartmentService implements DepartmentServiceInterface{
 		return dao.addDepartment(e);
 	}
 
+	public void deleteMapping(int id) {
+		// TODO Auto-generated method stub
+		dao.deleteDepartment(id);
+		
+	}
+
 }

@@ -31,4 +31,9 @@ public class OrderDao {
 		return repo.findById(id).get();
 	}
 
+	public void deleteItemId(int id) {
+		// TODO Auto-generated method stub
+		repo.deleteItemId(id);
+	}
+
 }

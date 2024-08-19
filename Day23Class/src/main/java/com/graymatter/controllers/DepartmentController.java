@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +33,11 @@ public class DepartmentController {
 	@PostMapping("/department")
 	public Department addDepartment(@RequestBody Department d){
 		return service.addDepartment(d);
+	}
+
+	@DeleteMapping("/department/{id}")
+	public void deleteDepartment(@PathVariable("id")int id) {
+		service.deleteMapping(id);
 	}
 	
 }

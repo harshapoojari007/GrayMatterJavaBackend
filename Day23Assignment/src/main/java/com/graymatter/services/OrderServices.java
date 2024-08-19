@@ -39,4 +39,9 @@ public class OrderServices implements OrderServicesInterface{
 		return mapper.mapToOrderDto(dao.getItem(id));
 	}
 
+	public void deleteItem(int id) {
+		// TODO Auto-generated method stub
+		dao.deleteItemId(id);
+	}
+
 }
