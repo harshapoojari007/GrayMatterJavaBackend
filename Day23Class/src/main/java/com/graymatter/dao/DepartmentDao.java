@@ -20,8 +20,9 @@ public class DepartmentDao {
 		return repository.findAll();
 	}
 	
-	public Department addDepartment(Department e) {
-		return repository.save(e);
+	public Department addDepartment(Department d) {
+		
+		return repository.save(d);
 	}
 
 	public void deleteDepartment(int id) {

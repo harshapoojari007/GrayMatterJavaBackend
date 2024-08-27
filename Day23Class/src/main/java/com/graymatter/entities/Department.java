@@ -30,6 +30,6 @@ public class Department {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	@OneToMany(mappedBy = "department",cascade=CascadeType.ALL,orphanRemoval = true)
-//	@JsonIgnore
+	//
 	private List<Employee> employee=new ArrayList<>();
 }

@@ -43,6 +43,15 @@ public class Author {
 		books.remove(book);
 		book.setAuthor(null);
 	}
+	public void updateBook(int id,String name) {
+		for(Book b:books) {
+			if(b.getId()==id) {
+				b.setTitle(name);
+			}
+		}
+	}
+	
+	
 	
 
 }

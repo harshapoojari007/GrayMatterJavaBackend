@@ -1,5 +1,7 @@
 package com.graymatter.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -29,5 +31,6 @@ public class Employee {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="deptId", referencedColumnName = "id")
+	@JsonIgnore
     private Department department;
 }

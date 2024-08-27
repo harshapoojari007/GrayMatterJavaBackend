@@ -32,7 +32,21 @@ public class DepartmentController {
 	}
 	@PostMapping("/department")
 	public Department addDepartment(@RequestBody Department d){
+		
+//		   Department d2 = new Department();
+//	        d2.setName(d.getName());
+////	        d2.setId(d.getId());
+//
+//	        for (Employee empReq : d.getEmployee()) {
+//	            Employee employee = new Employee();
+//	            employee.setName(empReq.getName());
+//	            employee.setSalary(empReq.getSalary());
+//	            employee.setCity(empReq.getCity());
+//	            employee.setDepartment(d2);
+//	            d2.getEmployee().add(employee);
+//	        }
 		return service.addDepartment(d);
+		
 	}
 
 	@DeleteMapping("/department/{id}")
