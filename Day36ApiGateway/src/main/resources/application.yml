@@ -1,0 +1,26 @@
+server:
+ port: 8099
+spring:
+ cloud:
+    gateway: 
+      routes:
+        -id: Day36StudentService
+        uri: http://localhost:8086
+        predicate:
+          -path: /api/v1/**
+				-id: Day36CourseService
+				uri: http://localhost:8089
+				predicate:
+					-path: /api/v1/**
+
+eureka:
+	client:
+		service:
+			-url:
+				defaultZOne: http://localhost:8761/eureka
+		instance:
+			preferIpAddress: true
+				
+
+	
+		
